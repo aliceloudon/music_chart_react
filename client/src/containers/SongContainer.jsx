@@ -17,19 +17,23 @@ class SongContainer extends React.Component {
 
     request.onload = () => {
       if (request.status === 200) {
+        // console.log(request.responseText)
         const jsonString = request.responseText
         const data = JSON.parse(jsonString)
-        this.setState({ songs: data })
+        // console.log(songs)
+        this.setState({ songs: data.feed.entry })
+        // console.log(data.feed)
       }
     }
     request.send()
+
   }
 
   render(){
     return(
       <div>
         <h2>Top of the Pops!</h2>
-        <Songlist />
+        <SongList songs={this.state.songs}/>
       </div>
     )
   }
