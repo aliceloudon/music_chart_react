@@ -4,10 +4,9 @@ import Song from './Song'
 class SongList extends React.Component {
 
   render(){
-    
     const songNodes = this.props.songs.map((song, index) => {
       return (
-        <Song title={song.title.label} key={index}/>
+        <Song key={index} title={song["im:name"].label} artist={song["im:artist"].label} chartPosition={index+1}/>
       )
     })
 
