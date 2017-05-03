@@ -1,24 +1,23 @@
 import React from 'react'
+import Song from './Song'
 
 class SongList extends React.Component {
 
   render(){
-    console.log(this.props.songs)
     
-    const songNodes = this.props.songs.map((song) => {
+    const songNodes = this.props.songs.map((song, index) => {
       return (
-        console.log(song.title.label)
+        <Song title={song.title.label} key={index}/>
       )
     })
 
     return(
       <div>
-        
+        {songNodes}        
       </div>
     )
   }
 
 }
 
-// {songNodes}
 export default SongList
